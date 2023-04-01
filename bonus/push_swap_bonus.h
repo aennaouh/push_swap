@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 20:53:09 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 01:43:09 by aennaouh         ###   ########.fr       */
+/*   Created: 2023/04/01 02:09:40 by aennaouh          #+#    #+#             */
+/*   Updated: 2023/04/01 02:26:43 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include<stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_data
 {
@@ -25,6 +26,13 @@ typedef struct s_data
 	int				index;
 	struct s_data	*next;
 }t_data;
+
+t_data	*int_insid(char **str, int num);
+void	read_instructions(t_data **stack_a, t_data **stack_b);
+void	check_if_sorted(t_data *stack_a);
+t_data	*int_insid(char **str, int num);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strdup(const char *s1);
 
 char	**ft_split(char const *s, char c);
 void	check_integer(char **str);
@@ -47,12 +55,11 @@ char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 t_data	*ft_lstnew(int content);
-void	ft_lstadd_back(t_data **lst, t_data *new);
+void	ft_lstadd_back(t_data **lst, t_data *new)
 char	*ft_strjoi(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
-void	int_insid(char **str, int num);
 void	ft_putnber(int n);
-void	ft_lstadd_front(t_data **lst, t_data *new);
+t_data	*ft_lstnew(int content);
 int		lst_size(t_data *stack);
 
 void	size_2(t_data **stack_a);

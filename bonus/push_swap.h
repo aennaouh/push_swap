@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:53:09 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 01:43:09 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:23:11 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 t_data	*ft_lstnew(int content);
 void	ft_lstadd_back(t_data **lst, t_data *new);
-char	*ft_strjoi(const char *s1, const char *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
-void	int_insid(char **str, int num);
 void	ft_putnber(int n);
 void	ft_lstadd_front(t_data **lst, t_data *new);
 int		lst_size(t_data *stack);
