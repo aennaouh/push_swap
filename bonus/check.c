@@ -6,31 +6,11 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:02:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:26:59 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 03:08:23 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
-
-char	*ft_strdup(const char *s1)
-{
-	size_t	i;
-	size_t	lent;
-	char	*str;
-
-	i = 0;
-	lent = ft_strlen(s1);
-	str = malloc ((lent + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	while (i < lent)
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -95,9 +75,7 @@ void	check_if_sorted(t_data *stack_a)
 void	read_instructions(t_data **stack_a, t_data **stack_b)
 {
 	char	*tab;
-	int		i;
 
-	i = 0;
 	tab = get_next_line(0);
 	while (tab)
 	{
@@ -110,9 +88,22 @@ void	read_instructions(t_data **stack_a, t_data **stack_b)
 		else if (ft_strcmp(tab, "pb\n"))
 			pb (stack_b, stack_a);
 		else if (ft_strcmp(tab, "pa\n"))
-			pa(stack_a, stack_b);
-			tab = get_next_line(0);
-			i++;
+			pa (stack_a, stack_b);
+		else if (ft_strcmp(tab, "rb\n"))
+			rb (stack_b);
+		else if (ft_strcmp(tab, "rrb\n"))
+			rrb (stack_b);
+		else if (ft_strcmp(tab, "rra\n"))
+			rra (stack_b);
+		else if (ft_strcmp(tab, "rrr\n"))
+			rrr (stack_b, stack_a);
+		else
+		{
+			write(2, "Error:\n", 7);
+			//free(stack_a) 
+			exit(1);
+		}
+		tab = get_next_line(0);
 		free(tab);
 	}
 }
@@ -157,7 +148,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		i = 1;
-		join = ft_strdup(" ");
+		join = ft_strdpp(" ");
 		while (argv[i])
 		{
 			join = ft_strjoin(join, " ");

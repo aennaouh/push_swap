@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:53:09 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:23:11 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:59:42 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	size_5(t_data **stack_a);
 
 void	ft_putnber(int n);
 void	ft_putstr(char *str);
-char	*ft_strdup(const char *s1);
+char	*ft_strdpp(const char *s1);
 
 int		secand_index_5(t_data **stack_b);
 void	rrb(t_data **stack_b);

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:14:12 by aennaouh          #+#    #+#             */
-/*   Updated: 2022/11/17 20:29:03 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 03:01:14 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *str, int c);
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen1(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin1(char *s1, char *s2);
 char	*read_check(char *str, int fd);
 char	*take_line(char *str);
 char	*fix_line(char *str);

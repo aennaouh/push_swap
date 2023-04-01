@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 02:09:40 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:26:43 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:55:58 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 t_data	*ft_lstnew(int content);
-void	ft_lstadd_back(t_data **lst, t_data *new)
+void	ft_lstadd_back(t_data **lst, t_data *new);
 char	*ft_strjoi(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 void	ft_putnber(int n);
@@ -88,5 +88,7 @@ void	read_instructions(t_data **stack_a, t_data **stack_b);
 void	check_if_sorted(t_data *stack_a);
 int		pos_secand_5(t_data **stack_b);
 int		max_index_5(t_data **stack_b);
+void	index_size(t_data *stack_a);
+int		lst_size(t_data *stack);
 
 #endif

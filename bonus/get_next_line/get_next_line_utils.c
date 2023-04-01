@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 22:41:29 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/02/22 01:31:17 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 03:02:29 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen1(const char *str)
 {
 	size_t	i;
 
@@ -45,7 +45,7 @@ char	*ft_strdup(const char *s1)
 	char	*str;
 
 	i = 0;
-	lent = ft_strlen(s1);
+	lent = ft_strlen1(s1);
 	str = malloc((lent + 1) * sizeof(char));
 	if (!str)
 		return (0);
@@ -66,7 +66,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
-	lent = ft_strlen(s);
+	lent = ft_strlen1(s);
 	if (start > lent)
 		start = lent;
 	if (lent - start < len)
@@ -81,7 +81,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (tab);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin1(char *s1, char *s2)
 {
 	size_t	lent;
 	int		i;
@@ -92,7 +92,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	lent = ft_strlen(s1) + ft_strlen(s2);
+	lent = ft_strlen1(s1) + ft_strlen1(s2);
 	str = malloc((lent + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:55:28 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 00:00:25 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:57:51 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		i = 1;
-		join = ft_strdup(" "); // lllllllllllllllllllllllllllllllllllllllllllll
+		join = ft_strd(" "); // lllllllllllllllllllllllllllllllllllllllllllll
 		while (argv[i])
 		{
 			join = ft_strjoi(join, " ");

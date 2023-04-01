@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 22:35:43 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/02/22 01:30:36 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 03:01:48 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ char	*read_check(char *str, int fd)
 			return (free(str), free(buf), NULL);
 		else if (i == 0)
 		{
-			if (ft_strlen(str) == 0)
+			if (ft_strlen1(str) == 0)
 				return (free(buf), free(str), NULL);
 			return (free(buf), str);
 		}
 		buf[i] = '\0';
-		str = ft_strjoin(str, buf);
+		str = ft_strjoin1(str, buf);
 	}
 	return (str);
 }
@@ -61,7 +61,7 @@ char	*fix_line(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	ret = ft_substr(str, i + 1, ft_strlen(str + i));
+	ret = ft_substr(str, i + 1, ft_strlen1(str + i));
 	free(str);
 	return (ret);
 }

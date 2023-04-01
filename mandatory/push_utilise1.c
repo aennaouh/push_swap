@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:40:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 01:41:49 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:57:45 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_putnber(int n)
 	write (1, &c, 1);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strd(const char *s1)
 {
 	size_t	i;
 	size_t	lent;
