@@ -6,11 +6,11 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/03/31 06:35:03 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:53:58 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	check_integer(char **str)
 {
@@ -32,7 +32,6 @@ void	check_integer(char **str)
 		}
 		while (str[i][j])
 		{
-			printf("\'%c\'\n", str[i][j]);
 			if (!ft_isdigit(str[i][j]))
 			{
 				write(2, "Error:\n arguments aren't integers", 33);

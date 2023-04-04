@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:53:09 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 01:43:09 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:17:05 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ typedef struct s_data
 	int				index;
 	struct s_data	*next;
 }t_data;
+
+typedef struct s_norm
+{
+	int				i;
+	char			**split;
+	char			*join;
+	int				num;
+	t_data			*stack_a;
+	t_data			*stack_b;
+	int				top;
+	int				end;
+	int				chunk_p;
+	char			*tab;
+}					t_norm;
 
 char	**ft_split(char const *s, char c);
 void	check_integer(char **str);
@@ -49,6 +63,7 @@ void	ft_bzero(void *s, size_t n);
 t_data	*ft_lstnew(int content);
 void	ft_lstadd_back(t_data **lst, t_data *new);
 char	*ft_strjoi(const char *s1, const char *s2);
+char	*ft_strjoi2(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 void	int_insid(char **str, int num);
 void	ft_putnber(int n);
@@ -64,7 +79,7 @@ void	size_5(t_data **stack_a);
 
 void	ft_putnber(int n);
 void	ft_putstr(char *str);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup3(const char *s1);
 
 int		secand_index_5(t_data **stack_b);
 void	rrb(t_data **stack_b);
@@ -76,10 +91,19 @@ void	largest_number_5(t_data **stack_b);
 int		get_instr_5(t_data *stack_b, int index);
 void	chunk_check_5(t_data **stack_a, t_data **stack_b, int end, int top);
 
-t_data	*int_unsid(char **str, int num);
 void	read_instructions(t_data **stack_a, t_data **stack_b);
-void	check_if_sorted(t_data *stack_a);
 int		pos_secand_5(t_data **stack_b);
 int		max_index_5(t_data **stack_b);
+void	size_check(t_data **stack_a, t_data **stack_b);
+void	largest_number(t_data **stack_a, t_data **stack_b);
+
+int		pos_max_5(t_data **stack_b);
+void	free_stack(t_data *stack);
+void	free_all(char **split);
+void	suite_main(char **split, int num);
+void	suite_free(t_data *stack_a, t_data *stack_b, char **split);
+void	init(t_norm *norm);
+void	check_sorted(t_data **stack_a);
+void	ft_lstclear(t_data **lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 02:09:40 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:55:58 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/03 23:42:11 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,22 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include "../mandatory/push_swap.h" 
 # include "get_next_line/get_next_line.h"
 
-typedef struct s_data
-{
-	int				content;
-	int				index;
-	struct s_data	*next;
-}t_data;
+// typedef struct s_data
+// {
+// 	int				content;
+// 	int				index;
+// 	struct s_data	*next;
+// }t_data;
 
-t_data	*int_insid(char **str, int num);
+t_data	*int_unsid(char **str, int num);
 void	read_instructions(t_data **stack_a, t_data **stack_b);
-void	check_if_sorted(t_data *stack_a);
-t_data	*int_insid(char **str, int num);
+t_data	*int_unsid(char **str, int num);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
+int		check_if_sorted(t_data *stack_a);
 
 char	**ft_split(char const *s, char c);
 void	check_integer(char **str);
@@ -56,7 +57,7 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 t_data	*ft_lstnew(int content);
 void	ft_lstadd_back(t_data **lst, t_data *new);
-char	*ft_strjoi(const char *s1, const char *s2);
+char	*ft_strjoin2(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 void	ft_putnber(int n);
 t_data	*ft_lstnew(int content);
@@ -71,23 +72,18 @@ void	size_5(t_data **stack_a);
 
 void	ft_putnber(int n);
 void	ft_putstr(char *str);
-char	*ft_strdup(const char *s1);
+char	*ft_strdpp(const char *s1);
 
-int		secand_index_5(t_data **stack_b);
 void	rrb(t_data **stack_b);
 void	size_100(t_data **stack_a, t_data **stack_b);
 void	size_500(t_data **stack_a, t_data **stack_b);
 int		max_index(t_data **stack_b);
 int		pos_max_5(t_data **stack_b);
 void	largest_number_5(t_data **stack_b);
-int		get_instr_5(t_data *stack_b, int index);
 void	chunk_check_5(t_data **stack_a, t_data **stack_b, int end, int top);
 
 t_data	*int_unsid(char **str, int num);
 void	read_instructions(t_data **stack_a, t_data **stack_b);
-void	check_if_sorted(t_data *stack_a);
-int		pos_secand_5(t_data **stack_b);
-int		max_index_5(t_data **stack_b);
 void	index_size(t_data *stack_a);
 int		lst_size(t_data *stack);
 

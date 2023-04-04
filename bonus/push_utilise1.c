@@ -6,13 +6,13 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:40:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:59:37 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/04 02:52:18 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin2(const char *s1, const char *s2)
 {
 	int		lent;
 	int		i;

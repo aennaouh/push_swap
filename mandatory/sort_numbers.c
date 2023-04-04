@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:05:04 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/03/28 01:36:06 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:46:02 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	index_size(t_data *stack_a)
 		return ;
 	while (tmpi != NULL)
 	{
-	tmpj = stack_a;					
+	tmpj = stack_a;
 		index = 0;
 		while (tmpj != NULL)
 		{

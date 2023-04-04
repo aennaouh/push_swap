@@ -1,50 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   suite_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 02:02:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 02:46:41 by aennaouh         ###   ########.fr       */
+/*   Created: 2023/04/03 19:42:54 by aennaouh          #+#    #+#             */
+/*   Updated: 2023/04/03 20:12:34 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap_bonus.h"
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	i = 0;
-	while (str1[i] == str2[i] && str1[i] && str2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int	check_if_sorted(t_data *stack_a)
-{
-	int		i;
-	t_data	*tmp;
-
-	i = 1;
-	tmp = stack_a;
-	while (tmp && tmp->next)
-	{
-		if (tmp->content < tmp->next->content)
-		{
-			i++;
-		}
-		tmp = tmp->next;
-	}
-	if (i == lst_size(stack_a))
-		return (0);
-	return (1);
-}
 
 void	read_instructions(t_data **stack_a, t_data **stack_b)
 {
@@ -91,46 +57,22 @@ void	read_instructions(t_data **stack_a, t_data **stack_b)
 		ft_putstr("ko\n");
 }
 
-t_data	*int_unsid(char **str, int num)
+int	check_if_sorted(t_data *stack_a)
 {
-	t_data	*stack_a;
-	t_data	*stack_b;
 	int		i;
+	t_data	*tmp;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	i = 0;
-	while (i < num)
+	i = 1;
+	tmp = stack_a;
+	while (tmp && tmp->next)
 	{
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(str[i])));
-			i++;
-	}
-	index_size(stack_a);
-	read_instructions(&stack_a, &stack_b);
-	return (stack_a);
-}
-
-int	main(int argc, char **argv)
-{
-	t_norm	norm;
-
-	init(&norm);
-	if (argc == 1)
-		return (1);
-	if (argc > 1)
-	{
-		norm.i = 1;
-		norm.join = ft_strdup3(" ");
-		while (argv[norm.i])
+		if (tmp->content < tmp->next->content)
 		{
-			norm.join = ft_strjoi(norm.join, " ");
-			norm.join = ft_strjoi(norm.join, argv[norm.i]);
-			norm.i++;
-			norm.num ++;
+			i++;
 		}
-		norm.split = ft_split(norm.join, ' ');
+		tmp = tmp->next;
 	}
-	index_size(norm.stack_a);
-	suite_main(norm.split, norm.num);
-	size_check(&norm.stack_a, &norm.stack_b);
+	if (i == lst_size(stack_a))
+		return (0);
+	return (1);
 }

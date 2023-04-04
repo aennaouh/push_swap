@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:55:28 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:57:51 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:01:46 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,22 @@ void	int_insid(char **str, int num)
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
-	while (i < num)
+	while (i < num - 1)
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(str[i])));
-			i++;
+		i++;
 	}
+	i = 0;
 	index_size(stack_a);
-	//print_stack(stack_a);
-	//size_check(&stack_a, &stack_b);
-	//size_500(&stack_a, &stack_b);
-	//print_stack(stack_a);
-	//print_stack(stack_b);
-	//print_stack(stack_a);
+	//printf("%p\t%p\n", stack_a, stack_b);
+	size_check(&stack_a, &stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	//ft_lstclear(&stack_a);
+	//t_lstclear(&stack_b);
+	//while (str[i])
+	//free(str[i]);
+	//free(str);
 }
 
 void	size_check(t_data **stack_a, t_data **stack_b)
@@ -47,50 +51,45 @@ void	size_check(t_data **stack_a, t_data **stack_b)
 	{
 		size_5(stack_a);
 	}
-	else if (lst_size(*stack_a) >= 6 && lst_size(*stack_a) <= 100)
+	else if (lst_size(*stack_a) <= 100)
 	{
 		size_100(stack_a, stack_b);
 	}
-	else if (lst_size(*stack_a) >= 100 && lst_size(*stack_a) <= 500)
+	else if (lst_size(*stack_a) <= 500)
 	{
-		size_500(stack_a, stack_b);
+		size_100(stack_a, stack_b);
 	}
+}
+
+void	func(void)
+{
+	system("leaks push_swap");
 }
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	char	**split;
-	char	*join = NULL;
-	t_data	*stack_a;
-	t_data	*stack_b;
-	int		num;
+	t_norm	norm;
 
-	stack_a = NULL;
-	join = NULL;
-	stack_b = NULL;
-	num = 0;
-	split = NULL;
-	i = 1;
+	init(&norm);
 	if (argc == 1)
 		return (1);
 	if (argc > 1)
 	{
-		i = 1;
-		join = ft_strd(" "); // lllllllllllllllllllllllllllllllllllllllllllll
-		while (argv[i])
+		norm.i = 1;
+		norm.join = ft_strdup3("");
+		while (argv[norm.i])
 		{
-			join = ft_strjoi(join, " ");
-			join = ft_strjoi(join, argv[i]);
-			i++;
-			num++;
+			norm.join = ft_strjoi(norm.join, " ");
+			norm.join = ft_strjoi(norm.join, argv[norm.i]);
+			norm.i++;
+			norm.num ++;
 		}
-		split = ft_split(join, ' ');
+		norm.split = ft_split(norm.join, ' ');
+		free(norm.join);
 	}
-	check_duplicat(split);
-	check_integer(split);
-	check_bigger(split);
-	int_insid(split, num);
-	index_size(stack_a);
-	size_check(&stack_a, &stack_b);
+	suite_main(norm.split, norm.num);
+	free_all(norm.split);
+	//printf("%p\t%p\n", norm.stack_a, norm.stack_b);
+	//atexit(func);
+	// while(1);
 }

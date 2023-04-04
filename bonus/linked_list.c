@@ -6,11 +6,11 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:54:17 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 02:20:13 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/01 03:13:39 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 t_data	*ft_lstnew(int content)
 {

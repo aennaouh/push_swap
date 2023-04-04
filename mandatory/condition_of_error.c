@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/03/31 06:35:03 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:29:40 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	check_integer(char **str)
 		}
 		while (str[i][j])
 		{
-			printf("\'%c\'\n", str[i][j]);
 			if (!ft_isdigit(str[i][j]))
 			{
 				write(2, "Error:\n arguments aren't integers", 33);
@@ -100,3 +99,19 @@ void	check_duplicat(char **str)
 		i++;
 	}
 }
+
+// void	check_sorted(t_data **stack_a)
+// {
+// 	t_data *tmp;
+	
+// 	tmp = (*stack_a);
+// 	while (tmp != NULL && tmp->next != NULL)
+// 	{
+// 		if(tmp < tmp->next)
+// 		{
+// 			exit(1);
+// 		}
+// 		tmp = tmp->next;
+// 	}
+// }
+

@@ -6,11 +6,11 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:09:56 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/03/26 02:37:00 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:45:31 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ra(t_data **stack_a)
 {
@@ -26,7 +26,6 @@ void	ra(t_data **stack_a)
 		tmp1 = tmp1->next;
 	tmp1->next = tmp;
 	tmp->next = NULL;
-	ft_putstr("ra\n");
 }
 
 void	rb(t_data **stack_b)
@@ -43,12 +42,10 @@ void	rb(t_data **stack_b)
 		tmp1 = tmp1->next;
 	tmp1->next = tmp;
 	tmp->next = NULL;
-	ft_putstr("rb\n");
 }
 
 void	rr(t_data **stack_a, t_data **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
-	ft_putstr("rr\n");
 }
