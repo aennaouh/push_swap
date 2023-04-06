@@ -6,11 +6,26 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:55:28 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 11:01:46 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:33:02 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	lst_size(t_data *stack)
+{
+	int	i;
+
+	i = 0;
+	if (stack == NULL)
+		return (0);
+	while (stack != NULL)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
 
 void	int_insid(char **str, int num)
 {
@@ -28,26 +43,27 @@ void	int_insid(char **str, int num)
 	}
 	i = 0;
 	index_size(stack_a);
-	//printf("%p\t%p\n", stack_a, stack_b);
-	size_check(&stack_a, &stack_b);
+	if (!check_sorted(&stack_a))
+	{
+		size_check(&stack_a, &stack_b);
+	}
 	free_stack(stack_a);
 	free_stack(stack_b);
-	//ft_lstclear(&stack_a);
-	//t_lstclear(&stack_b);
-	//while (str[i])
-	//free(str[i]);
-	//free(str);
 }
 
 void	size_check(t_data **stack_a, t_data **stack_b)
 {
 	if (lst_size(*stack_a) == 0)
 		return ;
+	else if (lst_size(*stack_a) == 2)
+	{
+		size_2(stack_a);
+	}
 	else if (lst_size(*stack_a) == 3)
 	{
 		size_3(stack_a);
 	}
-	else if (lst_size(*stack_a) >= 0 && lst_size(*stack_a) <= 5)
+	else if (lst_size(*stack_a) >= 3 && lst_size(*stack_a) <= 5)
 	{
 		size_5(stack_a);
 	}
@@ -57,13 +73,8 @@ void	size_check(t_data **stack_a, t_data **stack_b)
 	}
 	else if (lst_size(*stack_a) <= 500)
 	{
-		size_100(stack_a, stack_b);
+		size_500(stack_a, stack_b);
 	}
-}
-
-void	func(void)
-{
-	system("leaks push_swap");
 }
 
 int	main(int argc, char **argv)
@@ -89,7 +100,4 @@ int	main(int argc, char **argv)
 	}
 	suite_main(norm.split, norm.num);
 	free_all(norm.split);
-	//printf("%p\t%p\n", norm.stack_a, norm.stack_b);
-	//atexit(func);
-	// while(1);
 }

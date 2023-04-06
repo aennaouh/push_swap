@@ -6,11 +6,11 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:45:52 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 02:46:23 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:30:46 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	free_all(char **split)
 {
@@ -29,11 +29,11 @@ void	free_stack(t_data *stack)
 {
 	t_data	*node;
 
-	while (stack)
+	while (stack != NULL)
 	{
-		node = stack->next;
-		free(stack);
-		stack = node;
+		node = stack;
+		stack = stack->next;
+		free(node);
 	}
 }
 
@@ -42,7 +42,7 @@ void	suite_main(char **split, int num)
 	check_duplicat(split);
 	check_integer(split);
 	check_bigger(split);
-	int_insid(split, num);
+	int_unsid(split, num);
 }
 
 void	suite_free(t_data *stack_a, t_data *stack_b, char **split)

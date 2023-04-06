@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:53:09 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 11:17:05 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:17:07 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	largest_number_5(t_data **stack_b);
 int		get_instr_5(t_data *stack_b, int index);
 void	chunk_check_5(t_data **stack_a, t_data **stack_b, int end, int top);
 
-void	read_instructions(t_data **stack_a, t_data **stack_b);
 int		pos_secand_5(t_data **stack_b);
 int		max_index_5(t_data **stack_b);
 void	size_check(t_data **stack_a, t_data **stack_b);
@@ -103,7 +102,7 @@ void	free_all(char **split);
 void	suite_main(char **split, int num);
 void	suite_free(t_data *stack_a, t_data *stack_b, char **split);
 void	init(t_norm *norm);
-void	check_sorted(t_data **stack_a);
+int		check_sorted(t_data **stack_a);
 void	ft_lstclear(t_data **lst);
 
 #endif

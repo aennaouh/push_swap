@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:41:26 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 11:41:58 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:53:20 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	free_stack(t_data *stack)
 {
 	t_data	*node;
 
-	while (stack)
+	while (stack != NULL)
 	{
-		node = stack;
-		stack = node;
-		free(stack);
+			node = stack;
+			stack = stack->next;
+		free(node);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:05:04 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/03 08:46:02 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:58:57 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,27 @@ void	size_2(t_data **stack_a)
 
 void	size_3(t_data **stack_a)
 {
-	if (stack_a == NULL)
-		return ;
-	if ((*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
+	if (stack_a && (*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
 	{
-		if ((*stack_a) > (*stack_a)->next && (*stack_a)->next->next)
+		if ((*stack_a)->content > (*stack_a)->next->content && \
+		(*stack_a)->next->next->content > (*stack_a)->content)
+			sa(stack_a);
+		else if ((*stack_a)->next->content > (*stack_a)->content && \
+		(*stack_a)->next->next->content < (*stack_a)->content)
+			rra(stack_a);
+		else if ((*stack_a)->content > (*stack_a)->next->content && \
+		(*stack_a)->content > (*stack_a)->next->next->content)
 		{
 			ra(stack_a);
+			sa(stack_a);
 		}
-		else if ((*stack_a)->next > (*stack_a) && (*stack_a)->next->next)
+		else if ((*stack_a)->content > (*stack_a)->next->content && \
+		(*stack_a)->next->next->content < (*stack_a)->next->content)
+			ra(stack_a);
+		else if ((*stack_a)->next->content > (*stack_a)->content && \
+		(*stack_a)->next->content > (*stack_a)->content)
 		{
 			rra(stack_a);
-		}
-		if (1 > 2)
-		{
 			sa(stack_a);
 		}
 	}

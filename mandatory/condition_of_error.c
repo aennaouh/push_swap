@@ -6,11 +6,25 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 11:29:40 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:40:10 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	suite_check_integet(char **str)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	if (str[i][j] == '\0')
+	{
+		write(2, "Error:\n arguments aren't integers", 33);
+		exit(1);
+	}
+}
 
 void	check_integer(char **str)
 {
@@ -25,11 +39,7 @@ void	check_integer(char **str)
 		j = 0;
 		if (str[i][j] == '-' || str[i][j] == '+')
 			j++;
-		if (str[i][j] == '\0')
-		{
-			write(2, "Error:\n arguments aren't integers", 33);
-			exit(1);
-		}
+		suite_check_integet(str);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
@@ -38,7 +48,7 @@ void	check_integer(char **str)
 				exit(1);
 			}
 			j++;
-		}
+		}	
 		i++;
 	}
 }
@@ -99,19 +109,3 @@ void	check_duplicat(char **str)
 		i++;
 	}
 }
-
-// void	check_sorted(t_data **stack_a)
-// {
-// 	t_data *tmp;
-	
-// 	tmp = (*stack_a);
-// 	while (tmp != NULL && tmp->next != NULL)
-// 	{
-// 		if(tmp < tmp->next)
-// 		{
-// 			exit(1);
-// 		}
-// 		tmp = tmp->next;
-// 	}
-// }
-

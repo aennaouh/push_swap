@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:40:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 00:06:06 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:08:24 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,6 @@ char	*ft_strjoi(const char *s1, const char *s2)
 	}
 	str[j++] = '\0';
 	free((char *)s1);
-	return (str);
-}
-
-char	*ft_strjoi2(const char *s1, const char *s2)
-{
-	int		lent;
-	int		i;
-	int		j;
-	char	*str;
-
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	lent = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc((lent + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	while (s1[i])
-	{
-		str[j++] = s1[i++];
-	}
-	i = 0;
-	while (s2[i])
-	{
-		str[j++] = s2[i++];
-	}
-	str[j++] = '\0';
 	return (str);
 }
 
@@ -121,4 +93,20 @@ char	*ft_strdup3(const char *s1)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+int	check_sorted(t_data **stack_a)
+{
+	t_data	*tmp;
+
+	tmp = (*stack_a);
+	while (tmp != NULL && tmp->next != NULL)
+	{
+		if (tmp->content > tmp->next->content)
+		{
+			return (0);
+		}
+		tmp = tmp->next;
+	}
+	return (1);
 }

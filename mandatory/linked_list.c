@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:54:17 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 10:18:43 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:14:13 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ int	ft_lstsize(t_data *lst)
 		i++;
 	}
 	return (i);
-}
-
-t_data	*ft_lstlast(t_data *lst)
-{
-	while (lst)
-	{
-		lst = lst->next;
-	}
-	return (lst);
 }
 
 void	ft_lstadd_back(t_data **lst, t_data *new)

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:58:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 10:59:35 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:56:17 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	size_100(t_data **stack_a, t_data **stack_b)
 	norm.top = 0;
 	norm.end = (lst_size(*stack_a) / 5) - 1;
 	norm.chunk_p = lst_size(*stack_a) / 5;
-	norm.i = 0;
 	if (*stack_a == NULL)
 		return ;
 	while (lst_size(*stack_a))
@@ -61,7 +60,5 @@ void	size_100(t_data **stack_a, t_data **stack_b)
 		norm.end += norm.chunk_p;
 	}
 	while (lst_size(*stack_b))
-	{
 		largest_number(stack_a, stack_b);
-	}
 }

@@ -6,11 +6,25 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/03 08:53:58 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:04:10 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	suit_check_integer(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (str[i][j] == '\0')
+	{
+		write(2, "Error:\n arguments aren't integers", 33);
+		exit(1);
+	}
+}
 
 void	check_integer(char **str)
 {
@@ -25,11 +39,7 @@ void	check_integer(char **str)
 		j = 0;
 		if (str[i][j] == '-' || str[i][j] == '+')
 			j++;
-		if (str[i][j] == '\0')
-		{
-			write(2, "Error:\n arguments aren't integers", 33);
-			exit(1);
-		}
+		suit_check_integer(str);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
