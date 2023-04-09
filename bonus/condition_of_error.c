@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 22:04:10 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:33:22 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_integer(char **str)
 		j = 0;
 		if (str[i][j] == '-' || str[i][j] == '+')
 			j++;
-		suit_check_integer(str);
+		suit_check_integer(str + j);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
@@ -105,6 +105,39 @@ void	check_duplicat(char **str)
 				exit(1);
 			}
 			j++;
+		}
+		i++;
+	}
+}
+
+int is_empty(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (1);
+	else
+		return (0);
+}
+
+void	check_empty_spaces(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		if (is_empty(str[i]) == 1)
+		{
+			write(2, "Error:\nEmpty String.\n", 21);
+			exit(1);
 		}
 		i++;
 	}

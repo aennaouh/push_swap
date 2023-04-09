@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:45:52 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 00:30:46 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/07 00:59:52 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	free_stack(t_data *stack)
 	}
 }
 
-void	suite_main(char **split, int num)
+void	suite_main(char **split)
 {
 	check_duplicat(split);
 	check_integer(split);
 	check_bigger(split);
-	int_unsid(split, num);
+	int_unsid(split);
 }
 
 void	suite_free(t_data *stack_a, t_data *stack_b, char **split)

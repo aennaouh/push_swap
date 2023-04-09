@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:58:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 21:56:17 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/06 02:30:37 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ void	chunk_check(t_data **stack_a, t_data **stack_b, int end, int top)
 		rb(stack_b);
 	}
 }
-
-// void suite_inti(t_data *norm)
-// {
-// 	norm.top = 0;
-// 	norm.end = (lst_size(*stack_a) / 5) - 1;
-// 	norm.chunk_p = lst_size(*stack_a) / 5;
-// 	norm.i = 0;
-// }
 
 void	size_100(t_data **stack_a, t_data **stack_b)
 {

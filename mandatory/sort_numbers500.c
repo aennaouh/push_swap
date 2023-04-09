@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 05:20:16 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 21:56:33 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/06 07:20:43 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	size_500(t_data **stack_a, t_data **stack_b)
 	t_norm	norm;
 
 	norm.top = 0;
-	norm.end = (lst_size(*stack_a) / 5) - 1;
-	norm.chunk_p = lst_size(*stack_a) / 5;
+	norm.end = (lst_size(*stack_a) / 9) - 1;
+	norm.chunk_p = lst_size(*stack_a) / 9;
 	if (*stack_a == NULL)
 		return ;
 	while (lst_size(*stack_a))

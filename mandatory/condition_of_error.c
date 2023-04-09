@@ -6,22 +6,17 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 21:40:10 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/06 06:07:30 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	suite_check_integet(char **str)
+void	suite_check_integet(char c)
 {
-	int	i;
-	int	j;
-
-	j = 0;
-	i = 0;
-	if (str[i][j] == '\0')
+	if (c == '\0')
 	{
-		write(2, "Error:\n arguments aren't integers", 33);
+		write(2, "Error:\n arguments aren't integers..", 35);
 		exit(1);
 	}
 }
@@ -39,7 +34,7 @@ void	check_integer(char **str)
 		j = 0;
 		if (str[i][j] == '-' || str[i][j] == '+')
 			j++;
-		suite_check_integet(str);
+		suite_check_integet(str[i][j]);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))

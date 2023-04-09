@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:55:28 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 00:33:02 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 10:00:20 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	lst_size(t_data *stack)
 	return (i);
 }
 
-void	int_insid(char **str, int num)
+void	int_insid(char **str)
 {
 	t_data	*stack_a;
 	t_data	*stack_b;
@@ -36,12 +36,11 @@ void	int_insid(char **str, int num)
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
-	while (i < num - 1)
+	while (str[i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(str[i])));
 		i++;
 	}
-	i = 0;
 	index_size(stack_a);
 	if (!check_sorted(&stack_a))
 	{
@@ -93,11 +92,11 @@ int	main(int argc, char **argv)
 			norm.join = ft_strjoi(norm.join, " ");
 			norm.join = ft_strjoi(norm.join, argv[norm.i]);
 			norm.i++;
-			norm.num ++;
 		}
 		norm.split = ft_split(norm.join, ' ');
 		free(norm.join);
 	}
-	suite_main(norm.split, norm.num);
+	check_empty_spaces(argv);
+	suite_main(norm.split);
 	free_all(norm.split);
 }

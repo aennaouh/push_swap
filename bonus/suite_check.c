@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:42:54 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 00:45:16 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:40:17 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void	suit_read_instructions(t_data **stack_a, t_data **stack_b, char *tab)
 	else
 	{
 		write(2, "Error\n", 7);
-		exit(0);
+		free_stack(*stack_b);
+		//free_stack(*stack_a);
+		exit(1);
 	}
 }
 
@@ -55,6 +57,7 @@ void	read_instructions(t_data *stack_a, t_data *stack_b)
 		free(tab);
 		tab = get_next_line(0);
 	}
+	//free(tab);
 	if (check_sorted(&stack_a) && stack_b == NULL)
 	{
 		ft_putstr("OK\n");

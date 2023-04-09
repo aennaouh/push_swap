@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:54:17 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/01 03:13:39 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/06 07:39:57 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,3 @@ void	ft_lstadd_back(t_data **lst, t_data *new)
 		tmp->next = new;
 	}
 }
-
-// void	ft_lstclear(t_data **lst, void (*del)(int))
-// {
-// 	t_data	*tmp;
-
-// 	tmp = *lst;
-// 	while (tmp != NULL)
-// 	{
-// 		tmp->next = NULL;
-// 		del(tmp->content);
-// 		free(tmp);
-// 	}
-// 	*lst = NULL;
-// }

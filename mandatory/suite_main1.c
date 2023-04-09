@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:41:26 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 23:53:20 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 10:02:07 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,45 @@ void	free_stack(t_data *stack)
 	}
 }
 
-void	suite_main(char **split, int num)
+int is_empty(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (1);
+	else
+		return (0);
+}
+
+void	check_empty_spaces(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		if (is_empty(str[i]) == 1)
+		{
+			write(2, "Error:\nEmpty String.\n", 21);
+			exit(1);
+		}
+		i++;
+	}
+}
+
+void	suite_main(char **split)
 {
 	check_duplicat(split);
 	check_integer(split);
 	check_bigger(split);
-	int_insid(split, num);
+	int_insid(split);
 }
 
 void	suite_free(t_data *stack_a, t_data *stack_b, char **split)

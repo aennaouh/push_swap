@@ -6,14 +6,14 @@
 #    By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 18:59:49 by aennaouh          #+#    #+#              #
-#    Updated: 2023/04/06 00:34:59 by aennaouh         ###   ########.fr        #
+#    Updated: 2023/04/06 07:37:57 by aennaouh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 B-NAME = checker
 cc = CC
-FLAGS= -Wall -Wextra -Werror -g -fsanitize=address -static-libsan
+FLAGS= -Wall -Wextra -Werror
 HEAD = mandatory/push_swap.h
 HEAD_BONUS = bonus/push_swap_bonus.h
 SRC =  mandatory/instraction.c  mandatory/push_utilise.c  mandatory/instraction2.c  mandatory/push_utilise2.c   mandatory/push_utilise1.c  mandatory/suite_sort_num_500.c\
@@ -44,9 +44,8 @@ clean :
 	rm -rf $(OBJ) $(OBJ1)
 
 fclean : clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(B-NAME)
 
 re : fclean all
 
 re_bonus: fclean bonus
-#-fsanitize=address -static-libsan

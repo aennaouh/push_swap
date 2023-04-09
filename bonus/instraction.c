@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:53:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 00:00:34 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 09:32:19 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_data **stack_a)
 {
 	t_data	*tmp;
 
-	if (!stack_a || (*stack_a)->next == NULL)
+	if (!(*stack_a) || !stack_a || (*stack_a)->next == NULL)
 		return ;
 	tmp = (*stack_a);
 	(*stack_a) = tmp->next;

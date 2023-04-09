@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 02:09:40 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 00:42:13 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:33:29 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 void	read_instructions(t_data *stack_a, t_data *stack_b);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
-int		check_if_sorted(t_data *stack_a);
 
 char	**ft_split(char const *s, char c);
 void	check_integer(char **str);
@@ -72,14 +71,15 @@ int		pos_max_5(t_data **stack_b);
 void	largest_number_5(t_data **stack_b);
 void	chunk_check_5(t_data **stack_a, t_data **stack_b, int end, int top);
 
-void	int_unsid(char **str, int num);
+void	int_unsid(char **str);
 void	index_size(t_data *stack_a);
 int		lst_size(t_data *stack);
 void	free_all(char **split);
 void	free_stack(t_data *stack);
 void	suite_free(t_data *stack_a, t_data *stack_b, char **split);
 void	init(t_norm *norm);
-void	suite_main(char **split, int num);
+void	suite_main(char **split);
 int		check_sorted(t_data **stack_a);
+void	check_empty_spaces(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:02:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 00:42:41 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:34:12 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-void	int_unsid(char **str, int num)
+void	int_unsid(char **str)
 {
 	t_data	*stack_a;
 	t_data	*stack_b;
@@ -35,7 +35,7 @@ void	int_unsid(char **str, int num)
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
-	while (i < num - 1)
+	while (str[i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(str[i])));
 			i++;
@@ -46,6 +46,10 @@ void	int_unsid(char **str, int num)
 	free_stack(stack_b);
 }
 
+void ff(void)
+{
+	system("leaks checker");
+}
 int	main(int argc, char **argv)
 {
 	t_norm	norm;
@@ -53,6 +57,7 @@ int	main(int argc, char **argv)
 	init(&norm);
 	if (argc == 1)
 		return (1);
+	check_empty_spaces(argv);
 	if (argc > 1)
 	{
 		norm.i = 1;
@@ -67,6 +72,7 @@ int	main(int argc, char **argv)
 		norm.split = ft_split(norm.join, ' ');
 		free(norm.join);
 	}
-	suite_main(norm.split, norm.num);
+	suite_main(norm.split);
 	free_all(norm.split);
+	atexit(ff);
 }
