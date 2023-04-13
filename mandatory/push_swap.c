@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 20:55:28 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 10:00:20 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/11 02:49:32 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,17 @@ void	size_check(t_data **stack_a, t_data **stack_b)
 	{
 		size_3(stack_a);
 	}
-	else if (lst_size(*stack_a) >= 3 && lst_size(*stack_a) <= 5)
+	else if (lst_size(*stack_a) > 3 && lst_size(*stack_a) <= 5)
 	{
 		size_5(stack_a);
 	}
 	else if (lst_size(*stack_a) <= 100)
 	{
-		size_100(stack_a, stack_b);
+		size_100(stack_a, stack_b, 5);
 	}
-	else if (lst_size(*stack_a) <= 500)
+	else if (lst_size(*stack_a) >= 500)
 	{
-		size_500(stack_a, stack_b);
+		size_100(stack_a, stack_b, 9);
 	}
 }
 

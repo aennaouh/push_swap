@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:02:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 23:34:12 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:24:30 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,10 @@ void	int_unsid(char **str)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(str[i])));
 			i++;
 	}
-	index_size(stack_a);
-	read_instructions(stack_a, stack_b);
+	read_instructions(&stack_a, &stack_b);
 	free_stack(stack_a);
-	free_stack(stack_b);
 }
 
-void ff(void)
-{
-	system("leaks checker");
-}
 int	main(int argc, char **argv)
 {
 	t_norm	norm;
@@ -67,12 +61,10 @@ int	main(int argc, char **argv)
 			norm.join = ft_strjoin2(norm.join, " ");
 			norm.join = ft_strjoin2(norm.join, argv[norm.i]);
 			norm.i++;
-			norm.num ++;
 		}
 		norm.split = ft_split(norm.join, ' ');
 		free(norm.join);
 	}
 	suite_main(norm.split);
 	free_all(norm.split);
-	atexit(ff);
 }

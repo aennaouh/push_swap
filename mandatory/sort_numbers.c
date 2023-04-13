@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:05:04 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/05 21:58:57 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/11 05:09:59 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	the_smallest(t_data **stack)
 
 	if (stack == NULL || (*stack) == NULL)
 		return (0);
-	smallest = (*stack)->index;
 	tmp = (*stack);
+	smallest = (*stack)->index;
 	while (tmp != NULL)
 	{
 		if (smallest > tmp->index)
@@ -28,30 +28,6 @@ int	the_smallest(t_data **stack)
 		tmp = tmp->next;
 	}
 	return (smallest);
-}
-
-void	index_size(t_data *stack_a)
-{
-	t_data	*tmpi;
-	t_data	*tmpj;
-	int		index;
-
-	tmpi = stack_a;
-	if (stack_a == NULL)
-		return ;
-	while (tmpi != NULL)
-	{
-	tmpj = stack_a;
-		index = 0;
-		while (tmpj != NULL)
-		{
-			if (tmpj->content != tmpi->content && tmpi->content > tmpj->content)
-				index++;
-			tmpj = tmpj->next;
-		}
-		tmpi->index = index;
-		tmpi = tmpi->next;
-	}
 }
 
 void	size_2(t_data **stack_a)
@@ -65,33 +41,50 @@ void	size_2(t_data **stack_a)
 	}
 }
 
-void	size_3(t_data **stack_a)
+void	suite_size(t_data **stack_a)
 {
-	if (stack_a && (*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
+	t_data	*stack_b;
+
+	stack_b = NULL;
+	if (find_index(*stack_a, the_smallest(stack_a)) == 0 && \
+	(*stack_a)->next->content > (*stack_a)->next->next->content)
 	{
-		if ((*stack_a)->content > (*stack_a)->next->content && \
-		(*stack_a)->next->next->content > (*stack_a)->content)
+		pb(stack_a, &stack_b);
+		sa(stack_a);
+		pa(&stack_b, stack_a);
+	}
+	else if (find_index(*stack_a, the_smallest(stack_a)) == 1)
+	{
+		if (((*stack_a)->content < (*stack_a)->next->next->content))
 			sa(stack_a);
-		else if ((*stack_a)->next->content > (*stack_a)->content && \
-		(*stack_a)->next->next->content < (*stack_a)->content)
-			rra(stack_a);
-		else if ((*stack_a)->content > (*stack_a)->next->content && \
-		(*stack_a)->content > (*stack_a)->next->next->content)
-		{
+		else
 			ra(stack_a);
-			sa(stack_a);
-		}
-		else if ((*stack_a)->content > (*stack_a)->next->content && \
-		(*stack_a)->next->next->content < (*stack_a)->next->content)
-			ra(stack_a);
-		else if ((*stack_a)->next->content > (*stack_a)->content && \
-		(*stack_a)->next->content > (*stack_a)->content)
-		{
-			rra(stack_a);
-			sa(stack_a);
-		}
 	}
 }
+
+void	size_3(t_data **stack_a)
+{
+	t_data	*stack_b;
+
+	stack_b = NULL;
+	if (!check_sorted(stack_a))
+	{
+		if (stack_a && (*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
+		{
+			suite_size(stack_a);
+			if (find_index(*stack_a, the_smallest(stack_a)) == 2)
+			{
+				if ((*stack_a)->content > (*stack_a)->next->content)
+				{
+					sa(stack_a);
+					rra(stack_a);
+				}
+				else
+					rra(stack_a);
+			}
+		}
+	}
+}	
 
 void	size_5(t_data **stack_a)
 {
@@ -102,10 +95,13 @@ void	size_5(t_data **stack_a)
 		return ;
 	while ((lst_size(*stack_a)) > 3)
 	{
-		while ((*stack_a)->index != the_smallest(stack_a))
-		{
-			rra(stack_a);
-		}
+		if (find_index(*stack_a, the_smallest(stack_a)) < \
+		lst_size(*stack_a) / 2)
+			while ((*stack_a)->index != the_smallest(stack_a))
+				ra(stack_a);
+		else
+			while ((*stack_a)->index != the_smallest(stack_a))
+				rra(stack_a);
 		if ((*stack_a) && (*stack_a)->index == the_smallest(stack_a))
 		{
 			pb(stack_a, &stack_b);

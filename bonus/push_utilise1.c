@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:40:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 09:39:33 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 01:02:32 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,14 @@ char	*ft_strdpp(const char *s1)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+int	ft_strlen_lien(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

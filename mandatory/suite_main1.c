@@ -6,40 +6,15 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 00:41:26 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 10:02:07 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 05:02:27 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(char **split)
+int	is_empty(char *str)
 {
-	int	j;
-
-	j = 0;
-	while (split[j])
-	{
-		free(split[j]);
-		j++;
-	}
-	free(split);
-}
-
-void	free_stack(t_data *stack)
-{
-	t_data	*node;
-
-	while (stack != NULL)
-	{
-			node = stack;
-			stack = stack->next;
-		free(node);
-	}
-}
-
-int is_empty(char *str)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '\0')
@@ -94,5 +69,4 @@ void	init(t_norm *norm)
 	norm->stack_b = NULL;
 	norm->join = NULL;
 	norm->i = 1;
-	norm->num = 1;
 }

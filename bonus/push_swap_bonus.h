@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 02:09:40 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 23:33:29 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:17:59 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../mandatory/push_swap.h" 
 # include "get_next_line/get_next_line.h"
 
-void	read_instructions(t_data *stack_a, t_data *stack_b);
+void	read_instructions(t_data **stack_a, t_data **stack_b);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
 
@@ -64,12 +64,6 @@ void	ft_putstr(char *str);
 char	*ft_strdpp(const char *s1);
 
 void	rrb(t_data **stack_b);
-void	size_100(t_data **stack_a, t_data **stack_b);
-void	size_500(t_data **stack_a, t_data **stack_b);
-int		max_index(t_data **stack_b);
-int		pos_max_5(t_data **stack_b);
-void	largest_number_5(t_data **stack_b);
-void	chunk_check_5(t_data **stack_a, t_data **stack_b, int end, int top);
 
 void	int_unsid(char **str);
 void	index_size(t_data *stack_a);
@@ -81,5 +75,6 @@ void	init(t_norm *norm);
 void	suite_main(char **split);
 int		check_sorted(t_data **stack_a);
 void	check_empty_spaces(char **str);
+int		ft_strlen_lien(char **s);
 
 #endif

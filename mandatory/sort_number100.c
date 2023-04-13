@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:58:37 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/06 02:30:37 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:45:50 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	chunk_check(t_data **stack_a, t_data **stack_b, int end, int top)
 	}
 }
 
-void	size_100(t_data **stack_a, t_data **stack_b)
+void	size_100(t_data **stack_a, t_data **stack_b, int chunk)
 {
 	t_norm	norm;
 
 	norm.top = 0;
-	norm.end = (lst_size(*stack_a) / 5) - 1;
-	norm.chunk_p = lst_size(*stack_a) / 5;
+	norm.end = (lst_size(*stack_a) / chunk) - 1;
+	norm.chunk_p = lst_size(*stack_a) / chunk;
 	if (*stack_a == NULL)
 		return ;
 	while (lst_size(*stack_a))

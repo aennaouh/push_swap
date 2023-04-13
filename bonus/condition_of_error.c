@@ -6,22 +6,17 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:19:51 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 23:33:22 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/11 06:29:39 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	suit_check_integer(char **str)
+void	suite_check_integet(char c)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	if (str[i][j] == '\0')
+	if (c == '\0')
 	{
-		write(2, "Error:\n arguments aren't integers", 33);
+		write(2, "Error:\n arguments aren't integers..", 35);
 		exit(1);
 	}
 }
@@ -39,7 +34,7 @@ void	check_integer(char **str)
 		j = 0;
 		if (str[i][j] == '-' || str[i][j] == '+')
 			j++;
-		suit_check_integer(str + j);
+		suite_check_integet(str[i][j]);
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j]))
@@ -48,7 +43,7 @@ void	check_integer(char **str)
 				exit(1);
 			}
 			j++;
-		}
+		}	
 		i++;
 	}
 }
@@ -76,16 +71,6 @@ void	check_bigger(char **str)
 	}
 }
 
-int	ft_strlen_lien(char **s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 void	check_duplicat(char **str)
 {
 	int	i;
@@ -105,39 +90,6 @@ void	check_duplicat(char **str)
 				exit(1);
 			}
 			j++;
-		}
-		i++;
-	}
-}
-
-int is_empty(char *str)
-{
-	int i;
-
-	i = 0;
-	if (str[i] == '\0')
-		return (1);
-	while (str[i] == ' ')
-		i++;
-	if (str[i] == '\0')
-		return (1);
-	else
-		return (0);
-}
-
-void	check_empty_spaces(char **str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		if (is_empty(str[i]) == 1)
-		{
-			write(2, "Error:\nEmpty String.\n", 21);
-			exit(1);
 		}
 		i++;
 	}

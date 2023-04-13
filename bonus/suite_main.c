@@ -6,34 +6,42 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:45:52 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/07 00:59:52 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 05:21:59 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	free_all(char **split)
+int	is_empty(char *str)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (split[j])
-	{
-		free(split[j]);
-		j++;
-	}
-	free(split);
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (1);
+	else
+		return (0);
 }
 
-void	free_stack(t_data *stack)
+void	check_empty_spaces(char **str)
 {
-	t_data	*node;
+	int	i;
 
-	while (stack != NULL)
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
 	{
-		node = stack;
-		stack = stack->next;
-		free(node);
+		if (is_empty(str[i]) == 1)
+		{
+			write(2, "Error:\nEmpty String.\n", 21);
+			exit(1);
+		}
+		i++;
 	}
 }
 
@@ -61,5 +69,4 @@ void	init(t_norm *norm)
 	norm->stack_b = NULL;
 	norm->join = NULL;
 	norm->i = 1;
-	norm->num = 1;
 }

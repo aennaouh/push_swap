@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 02:48:45 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/04 02:52:31 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/10 04:58:03 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,29 @@ int	lst_size(t_data *stack)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+void	free_all(char **split)
+{
+	int	j;
+
+	j = 0;
+	while (split[j])
+	{
+		free(split[j]);
+		j++;
+	}
+	free(split);
+}
+
+void	free_stack(t_data *stack)
+{
+	t_data	*node;
+
+	while (stack != NULL)
+	{
+		node = stack;
+		stack = stack->next;
+		free(node);
+	}
 }

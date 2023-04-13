@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:42:54 by aennaouh          #+#    #+#             */
-/*   Updated: 2023/04/09 23:40:17 by aennaouh         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:33:25 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ void	suit_read_instructions(t_data **stack_a, t_data **stack_b, char *tab)
 	else
 	{
 		write(2, "Error\n", 7);
-		free_stack(*stack_b);
-		//free_stack(*stack_a);
 		exit(1);
 	}
 }
 
-void	read_instructions(t_data *stack_a, t_data *stack_b)
+void	read_instructions(t_data **stack_a, t_data **stack_b)
 {
 	char	*tab;
 
@@ -51,19 +49,23 @@ void	read_instructions(t_data *stack_a, t_data *stack_b)
 	while (tab)
 	{
 		if (ft_strcmp(tab, "pb\n") == 0)
-			pb (&stack_a, &stack_b);
+			pb (stack_a, stack_b);
 		else
-			suit_read_instructions(&stack_a, &stack_b, tab);
+			suit_read_instructions(stack_a, stack_b, tab);
 		free(tab);
 		tab = get_next_line(0);
 	}
-	//free(tab);
-	if (check_sorted(&stack_a) && stack_b == NULL)
+	if (check_sorted(stack_a) && *stack_b == NULL)
 	{
 		ft_putstr("OK\n");
 	}
 	else
 		ft_putstr("KO\n");
+	if (stack_b)
+	{
+		free_stack(*stack_b);
+		stack_b = NULL;
+	}
 }
 
 int	check_sorted(t_data **stack_a)
